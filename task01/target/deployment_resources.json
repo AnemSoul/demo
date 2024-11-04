@@ -15,9 +15,13 @@
     "security_group_ids" : [ ],
     "dependencies" : [ ],
     "event_sources" : [ ],
-    "env_variables" : { },
+    "env_variables" : {
+      "notification_bucket" : "${notification_bucket}",
+      "region" : "${region}"
+    },
     "tags" : { },
     "publish_version" : false,
+    "alias" : "${alias_name}",
     "logs_expiration" : "${logs_expiration}",
     "snap_start" : "None"
   }

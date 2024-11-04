@@ -4,6 +4,8 @@ import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.syndicate.deployment.annotations.lambda.LambdaHandler;
 import com.syndicate.deployment.model.RetentionSetting;
+import com.syndicate.deployment.annotations.environment.EnvironmentVariables;
+import com.syndicate.deployment.annotations.environment.EnvironmentVariable;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -12,9 +14,13 @@ import java.util.Map;
     lambdaName = "hello_world",
 	roleName = "hello_world-role",
 	isPublishVersion = false,
-//	aliasName = "${lambdas_alias_name}",
+	aliasName = "${alias_name}",
 	logsExpiration = RetentionSetting.SYNDICATE_ALIASES_SPECIFIED
 )
+@EnvironmentVariables(value = {
+		@EnvironmentVariable(key = "region", value = "${region}"),
+		@EnvironmentVariable(key = "notification_bucket", value = "${notification_bucket}")
+})
 public class HelloWorld implements RequestHandler<Object, Map<String, Object>> {
 
 	public Map<String, Object> handleRequest(Object request, Context context) {
