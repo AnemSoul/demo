@@ -23,18 +23,8 @@ import com.syndicate.deployment.model.lambda.url.InvokeMode;
 )
 public class HelloWorld implements RequestHandler<APIGatewayV2HTTPEvent, APIGatewayV2HTTPResponse> {
 
-//    public Map<String, Object> handleRequest(Object request, Context context) {
-//        System.out.println("Hello from lambda");
-//        Map<String, Object> resultMap = new HashMap<String, Object>();
-//        resultMap.put("statusCode", 200);
-//        resultMap.put("message", "Hello from Lambda");
-//        return resultMap;
-//    }
-
     @Override
     public APIGatewayV2HTTPResponse handleRequest(APIGatewayV2HTTPEvent requestEvent, Context context) {
-
-        APIGatewayV2HTTPResponse response;
 
         String path = requestEvent.getRawPath();
         String method = requestEvent.getRequestContext().getHttp().getMethod();
