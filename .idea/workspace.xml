@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="deploy a Lambda function with a configured Function URL">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="deployment file is changed, build01 deploy01" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,10 +33,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "0897bf57",
+    "git-widget-placeholder": "2dcbe17c",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/IdeaProjects/demo/task02/pom.xml",
+    "last_opened_file_path": "D:/IdeaProjects/demo/task03",
     "settings.editor.selected.configurable": "build.tools"
   }
 }]]></component>
@@ -190,7 +188,31 @@
       <option name="project" value="LOCAL" />
       <updated>1730814080359</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="clear code">
+      <option name="closed" value="true" />
+      <created>1730816117724</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1730816117724</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Tack03 after lambda generating">
+      <option name="closed" value="true" />
+      <created>1731248721425</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1731248721425</updated>
+    </task>
+    <task id="LOCAL-00010" summary="deployment file is changed, build01 deploy01">
+      <option name="closed" value="true" />
+      <created>1731251916622</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1731251916622</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,6 +233,9 @@
     <MESSAGE value="generated project for 2nd task" />
     <MESSAGE value="add generated lambda function of Java in Maven" />
     <MESSAGE value="deploy a Lambda function with a configured Function URL" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy a Lambda function with a configured Function URL" />
+    <MESSAGE value="clear code" />
+    <MESSAGE value="Tack03 after lambda generating" />
+    <MESSAGE value="deployment file is changed, build01 deploy01" />
+    <option name="LAST_COMMIT_MESSAGE" value="deployment file is changed, build01 deploy01" />
   </component>
 </project>
