@@ -11,7 +11,7 @@ public class Response {
         this.events = event;
     }
 
-    public int getStatusCode() {
+    public int getStatusCode(int i) {
         return statusCode;
     }
 

@@ -8,7 +8,6 @@ import com.amazonaws.services.dynamodbv2.document.Table;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.syndicate.deployment.annotations.environment.EnvironmentVariable;
-import com.syndicate.deployment.annotations.environment.EnvironmentVariables;
 import com.syndicate.deployment.annotations.lambda.LambdaHandler;
 import com.syndicate.deployment.annotations.resources.DependsOn;
 import com.syndicate.deployment.model.ResourceType;
@@ -16,8 +15,11 @@ import com.syndicate.deployment.model.RetentionSetting;
 import com.task05.dto.Events;
 import com.task05.dto.Request;
 import com.task05.dto.Response;
-import org.joda.time.DateTime;
 
+import java.time.Instant;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.util.Map;
 import java.util.UUID;
 
 @LambdaHandler(
@@ -27,53 +29,50 @@ import java.util.UUID;
         aliasName = "${lambdas_alias_name}",
         logsExpiration = RetentionSetting.SYNDICATE_ALIASES_SPECIFIED
 )
-@EnvironmentVariables(value = {
-        @EnvironmentVariable(key = "target_table", value = "$(target_table)"),
-        @EnvironmentVariable(key = "region", value = "$(region)")
-})
+@EnvironmentVariable(
+        key = "target_table",
+        value = "$(target_table)"
+)
 @DependsOn(
         name = "Events",
         resourceType = ResourceType.DYNAMODB_TABLE
 )
 public class ApiHandler implements RequestHandler<Request, Response> {
 
-    private final AmazonDynamoDB amazonDynamoDB = AmazonDynamoDBClientBuilder
-            .standard()
-            .withRegion(System.getenv("region"))
-            .build();
-    private final DynamoDB dynamoDB = new DynamoDB(amazonDynamoDB);
+    AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
+    private DynamoDB dynamoDb = new DynamoDB(client);
+    private String DYNAMODB_TABLE_NAME = System.getenv("target_table");
 
-    private Item buildItem(Request request) {
-        return new Item()
-                .withPrimaryKey("id", UUID.randomUUID().toString())
-                .withInt("principalID", request.getPrincipalID())
-                .withString("createdAt", new DateTime().toString())
-                .withMap("body", request.getContent());
-    }
-
-    private Events buildEvents(Item item) {
-        Events events = new Events();
-        events.setId(item.getString("id"));
-        events.setPrincipalID(item.getInt("principalID"));
-        events.setCreatedAt(item.getString("createdAt"));
-        events.setBody(item.getMap("body"));
-        return events;
-    }
-
+    @Override
     public Response handleRequest(Request request, Context context) {
 
-        context.getLogger().log("Received request: " + request.toString());
+        int principalId = request.getPrincipalID();
+        Map<String, String> content = request.getContent();
 
-        Table table = dynamoDB.getTable(System.getenv("target_table"));
-        Item item = buildItem(request);
+        String newId = UUID.randomUUID().toString();
+        String currentTime = DateTimeFormatter.ISO_INSTANT
+                .format(Instant.now().atOffset(ZoneOffset.UTC));
 
-        context.getLogger().log("Saving item: " + item);
+        Table table = dynamoDb.getTable(DYNAMODB_TABLE_NAME);
+
+        Item item = new Item()
+                .withPrimaryKey("id", newId)
+                .withInt("principalId", principalId)
+                .withString("createdAt", currentTime)
+                .withMap("body", content);
 
         table.putItem(item);
 
+        Events event = new Events();
+        event.setId(newId);
+        event.setPrincipalID(principalId);
+        event.setCreatedAt(currentTime);
+        event.setBody(content);
+
         Response response = new Response();
-        response.setStatusCode(201);
-        response.setEvents(buildEvents(item));
+
+        response.getStatusCode(201);
+        response.setEvents(event);
 
         return response;
     }
