@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="visibility_timeout was modified to 300">
+    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="SnsHandler Fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task04/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/task04/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
@@ -36,7 +36,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "01408066",
+    "git-widget-placeholder": "a76fbd67",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/IdeaProjects/demo/task04",
@@ -271,7 +271,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731339737541</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="SnsHandler Fix">
+      <option name="closed" value="true" />
+      <created>1731340531154</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1731340531154</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -302,6 +310,7 @@
     <MESSAGE value="SnsHandler is generated" />
     <MESSAGE value="SnsHandler adn SqsHandler was modified" />
     <MESSAGE value="visibility_timeout was modified to 300" />
-    <option name="LAST_COMMIT_MESSAGE" value="visibility_timeout was modified to 300" />
+    <MESSAGE value="SnsHandler Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="SnsHandler Fix" />
   </component>
 </project>
