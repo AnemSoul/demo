@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="task05 first generate">
-      <change afterPath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/dto/Events.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/dto/Request.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/dto/Response.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="ApiHandler is modified">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/ApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/ApiHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task05/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/task05/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task05/deployment_resources.json" beforeDir="false" afterPath="$PROJECT_DIR$/task05/deployment_resources.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +43,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "5378ac4b",
+    "git-widget-placeholder": "28ae894a",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/IdeaProjects/demo/task05",
@@ -301,7 +294,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731348650961</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="ApiHandler is modified">
+      <option name="closed" value="true" />
+      <created>1731354026284</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1731354026284</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -334,6 +335,7 @@
     <MESSAGE value="visibility_timeout was modified to 300" />
     <MESSAGE value="SnsHandler Fix" />
     <MESSAGE value="task05 first generate" />
-    <option name="LAST_COMMIT_MESSAGE" value="task05 first generate" />
+    <MESSAGE value="ApiHandler is modified" />
+    <option name="LAST_COMMIT_MESSAGE" value="ApiHandler is modified" />
   </component>
 </project>

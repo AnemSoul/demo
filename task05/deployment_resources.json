@@ -34,7 +34,7 @@
     "resource_type": "iam_role",
     "tags": {}
   },
-  "task05_api": {
+  "task5_api": {
     "resource_type": "api_gateway",
     "deploy_stage": "api",
     "dependencies": [],
@@ -58,8 +58,6 @@
     "resource_type": "dynamodb_table",
     "hash_key_name": "Id",
     "hash_key_type": "N",
-    "sort_key_name": "Category",
-    "sort_key_type": "S",
     "read_capacity": 1,
     "write_capacity": 1,
     "global_indexes": [],
