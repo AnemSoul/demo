@@ -27,7 +27,7 @@
   },
   "sqs_handler-role": {
     "predefined_policies": [
-      "AWSLambdaSQSQueueExecutionRole"
+      "LambdaQueueSQSExecutionRole"
     ],
     "principal_service": "lambda",
     "custom_policies": [

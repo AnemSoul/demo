@@ -4,8 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="deployment_resources.json 45-46 is changed, clean 01 build02 deploy02">
+    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="SqsHandler is generated, start for modified">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task04/deployment_resources.json" beforeDir="false" afterPath="$PROJECT_DIR$/task04/deployment_resources.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task04/jsrc/main/java/com/task04/SqsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/task04/jsrc/main/java/com/task04/SqsHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,10 +40,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "38b08081",
+    "git-widget-placeholder": "128e0f1b",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/IdeaProjects/demo/task03",
+    "last_opened_file_path": "D:/IdeaProjects/demo/task04",
     "settings.editor.selected.configurable": "build.tools"
   }
 }]]></component>
@@ -230,7 +235,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731253552707</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="SqsHandler is generated, start for modified">
+      <option name="closed" value="true" />
+      <created>1731335570936</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1731335570936</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,6 +269,7 @@
     <MESSAGE value="deployment file is changed, build01 deploy01" />
     <MESSAGE value="LambdaUrlConfig id added, clean 01 build02 deploy02" />
     <MESSAGE value="deployment_resources.json 45-46 is changed, clean 01 build02 deploy02" />
-    <option name="LAST_COMMIT_MESSAGE" value="deployment_resources.json 45-46 is changed, clean 01 build02 deploy02" />
+    <MESSAGE value="SqsHandler is generated, start for modified" />
+    <option name="LAST_COMMIT_MESSAGE" value="SqsHandler is generated, start for modified" />
   </component>
 </project>
