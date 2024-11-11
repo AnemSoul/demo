@@ -19,8 +19,7 @@
     } ],
     "event_sources" : [ ],
     "env_variables" : {
-      "target_table" : "$(target_table)",
-      "region" : "$(region)"
+      "target_table" : "$(target_table)"
     },
     "tags" : { },
     "publish_version" : true,
