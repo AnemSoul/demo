@@ -8,6 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Response {
-    private int statusCode;
-    private Object events;
+    private Integer statusCode;
+    private Events events;
 }
