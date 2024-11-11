@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="ApiHandler is modified">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task05/deployment_resources.json" beforeDir="false" afterPath="$PROJECT_DIR$/task05/deployment_resources.json" afterDir="false" />
+    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="deployment_resources.json is modified in 37, 61-2 lines">
+      <change beforePath="$PROJECT_DIR$/task05/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/task05/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +42,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "28ae894a",
+    "git-widget-placeholder": "32d40f52",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/IdeaProjects/demo/task05",
@@ -302,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731354026284</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="deployment_resources.json is modified in 37, 61-2 lines">
+      <option name="closed" value="true" />
+      <created>1731355696850</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1731355696850</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -336,6 +343,7 @@
     <MESSAGE value="SnsHandler Fix" />
     <MESSAGE value="task05 first generate" />
     <MESSAGE value="ApiHandler is modified" />
-    <option name="LAST_COMMIT_MESSAGE" value="ApiHandler is modified" />
+    <MESSAGE value="deployment_resources.json is modified in 37, 61-2 lines" />
+    <option name="LAST_COMMIT_MESSAGE" value="deployment_resources.json is modified in 37, 61-2 lines" />
   </component>
 </project>
