@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="deployment_resources.json next fix">
+    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="new fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/ApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/ApiHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/dto/Response.java" beforeDir="false" afterPath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/dto/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/dto/Events.java" beforeDir="false" afterPath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/dto/Events.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task05/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/task05/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task05/target/deployment_resources.json" beforeDir="false" afterPath="$PROJECT_DIR$/task05/target/deployment_resources.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task05/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/task05/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,7 +47,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "04feb93c",
+    "git-widget-placeholder": "6a4288dc",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/IdeaProjects/demo/task05",
@@ -336,7 +338,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731358351247</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="new fix">
+      <option name="closed" value="true" />
+      <created>1731359545542</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1731359545542</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -374,6 +384,7 @@
     <MESSAGE value="code was clean" />
     <MESSAGE value="deployment_resources.json fix" />
     <MESSAGE value="deployment_resources.json next fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="deployment_resources.json next fix" />
+    <MESSAGE value="new fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="new fix" />
   </component>
 </project>
