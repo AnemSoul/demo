@@ -1,0 +1,4 @@
+com\task05\dto\Events.class
+com\task05\dto\Response.class
+com\task05\ApiHandler.class
+com\task05\dto\Request.class
