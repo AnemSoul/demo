@@ -52,12 +52,12 @@ public class ApiHandler implements RequestHandler<Request, Response> {
     }
 
     private Events buildEvents(Item item) {
-        Events entity = new Events();
-        entity.setId(item.getString("id"));
-        entity.setPrincipalID(item.getInt("principalID"));
-        entity.setCreatedAt(item.getString("createdAt"));
-        entity.setBody(item.getMap("body"));
-        return entity;
+        Events events = new Events();
+        events.setId(item.getString("id"));
+        events.setPrincipalID(item.getInt("principalID"));
+        events.setCreatedAt(item.getString("createdAt"));
+        events.setBody(item.getMap("body"));
+        return events;
     }
 
     public Response handleRequest(Request request, Context context) {
