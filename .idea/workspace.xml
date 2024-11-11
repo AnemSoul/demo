@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="LambdaUrlConfig id added, clean 01 build02 deploy02">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="SnsHandler is generated">
+      <change beforePath="$PROJECT_DIR$/task04/deployment_resources.json" beforeDir="false" afterPath="$PROJECT_DIR$/task04/deployment_resources.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task04/jsrc/main/java/com/task04/SnsHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/task04/jsrc/main/java/com/task04/SnsHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,10 +36,10 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "6103f669",
+    "git-widget-placeholder": "d73c3f4b",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/IdeaProjects/demo/task03",
+    "last_opened_file_path": "D:/IdeaProjects/demo/task04",
     "settings.editor.selected.configurable": "build.tools"
   }
 }]]></component>
@@ -222,7 +223,39 @@
       <option name="project" value="LOCAL" />
       <updated>1731252901898</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="deployment_resources.json 45-46 is changed, clean 01 build02 deploy02">
+      <option name="closed" value="true" />
+      <created>1731253552707</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1731253552707</updated>
+    </task>
+    <task id="LOCAL-00013" summary="SqsHandler is generated, start for modified">
+      <option name="closed" value="true" />
+      <created>1731335570936</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1731335570936</updated>
+    </task>
+    <task id="LOCAL-00014" summary="SqsHandler is generated and modified, trying to do step 8">
+      <option name="closed" value="true" />
+      <created>1731336501844</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1731336501844</updated>
+    </task>
+    <task id="LOCAL-00015" summary="SnsHandler is generated">
+      <option name="closed" value="true" />
+      <created>1731338411526</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1731338411526</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -247,6 +280,10 @@
     <MESSAGE value="Tack03 after lambda generating" />
     <MESSAGE value="deployment file is changed, build01 deploy01" />
     <MESSAGE value="LambdaUrlConfig id added, clean 01 build02 deploy02" />
-    <option name="LAST_COMMIT_MESSAGE" value="LambdaUrlConfig id added, clean 01 build02 deploy02" />
+    <MESSAGE value="deployment_resources.json 45-46 is changed, clean 01 build02 deploy02" />
+    <MESSAGE value="SqsHandler is generated, start for modified" />
+    <MESSAGE value="SqsHandler is generated and modified, trying to do step 8" />
+    <MESSAGE value="SnsHandler is generated" />
+    <option name="LAST_COMMIT_MESSAGE" value="SnsHandler is generated" />
   </component>
 </project>
