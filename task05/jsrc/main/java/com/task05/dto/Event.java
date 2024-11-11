@@ -10,7 +10,7 @@ import java.util.Map;
 @AllArgsConstructor
 public class Event {
     private String id;
-    private int principalId;
+    private int principalID;
     private String createdAt;
     private Map<String, String> body;
 }

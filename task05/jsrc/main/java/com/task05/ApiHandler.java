@@ -38,13 +38,13 @@ public class ApiHandler implements RequestHandler<Request, Response> {
 	private String DYNAMODB_TABLE_NAME = System.getenv("target_table");
 
 	@Override
-	public Response handleRequest(Request event1, Context context) {
+	public Response handleRequest(Request request, Context context) {
 
-		int principalId = event1.getPrincipalId();
-		Map<String, String> content = event1.getContent();
+		int principalId = request.getPrincipalID();
+		Map<String, String> body = request.getContent();
 
 		String newId = UUID.randomUUID().toString();
-		String currentTime = DateTimeFormatter.ISO_INSTANT
+		String createdAt = DateTimeFormatter.ISO_INSTANT
 				.format(Instant.now().atOffset(ZoneOffset.UTC));
 
 		Table table = dynamoDb.getTable(DYNAMODB_TABLE_NAME);
@@ -52,23 +52,21 @@ public class ApiHandler implements RequestHandler<Request, Response> {
 		Item item = new Item()
 				.withPrimaryKey("id", newId)
 				.withInt("principalId", principalId)
-				.withString("createdAt", currentTime)
-				.withMap("body", content);
+				.withString("createdAt", createdAt)
+				.withMap("body", body);
 
 		table.putItem(item);
 
 		Event event = Event.builder()
 				.id(newId)
-				.principalId(principalId)
-				.createdAt(currentTime)
-				.body(content)
+				.principalID(principalId)
+				.createdAt(createdAt)
+				.body(body)
 				.build();
 
-		Response response = Response.builder()
+        return Response.builder()
 				.statusCode(201)
 				.event(event)
 				.build();
-
-		return response;
 	}
 }

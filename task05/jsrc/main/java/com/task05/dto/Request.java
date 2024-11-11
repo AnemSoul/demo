@@ -9,6 +9,6 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Request {
-    private int principalId;
+    private int principalID;
     private Map<String, String> content;
 }
