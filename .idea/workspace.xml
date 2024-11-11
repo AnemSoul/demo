@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="code was clean">
+    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="deployment_resources.json fix">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task05/deployment_resources.json" beforeDir="false" afterPath="$PROJECT_DIR$/task05/deployment_resources.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/task05/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/task05/target/maven-archiver/pom.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +43,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "c0d0a54e",
+    "git-widget-placeholder": "22df073d",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/IdeaProjects/demo/task05",
@@ -319,7 +318,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731356052951</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="deployment_resources.json fix">
+      <option name="closed" value="true" />
+      <created>1731356753560</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1731356753560</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -355,6 +362,7 @@
     <MESSAGE value="ApiHandler is modified" />
     <MESSAGE value="deployment_resources.json is modified in 37, 61-2 lines" />
     <MESSAGE value="code was clean" />
-    <option name="LAST_COMMIT_MESSAGE" value="code was clean" />
+    <MESSAGE value="deployment_resources.json fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="deployment_resources.json fix" />
   </component>
 </project>

@@ -4,9 +4,7 @@ public class Response {
     private int statusCode;
     private Object events;
 
-    public Response() {
-
-    }
+    public Response() {}
 
     public Response(int statusCode, Object event){
         this.statusCode = statusCode;
