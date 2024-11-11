@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="SnsHandler Fix">
+    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="task05 first generate">
+      <change afterPath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/dto/Events.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/dto/Request.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/dto/Response.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task04/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/task04/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/ApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/task05/jsrc/main/java/com/task05/ApiHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task05/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/task05/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +22,13 @@
   </component>
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -36,11 +50,11 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "a76fbd67",
+    "git-widget-placeholder": "5378ac4b",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/IdeaProjects/demo/task04",
-    "settings.editor.selected.configurable": "build.tools"
+    "last_opened_file_path": "D:/IdeaProjects/demo/task05",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices"
   }
 }]]></component>
   <component name="RunManager">
@@ -279,7 +293,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731340531154</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="task05 first generate">
+      <option name="closed" value="true" />
+      <created>1731348650961</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1731348650961</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -311,6 +333,7 @@
     <MESSAGE value="SnsHandler adn SqsHandler was modified" />
     <MESSAGE value="visibility_timeout was modified to 300" />
     <MESSAGE value="SnsHandler Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="SnsHandler Fix" />
+    <MESSAGE value="task05 first generate" />
+    <option name="LAST_COMMIT_MESSAGE" value="task05 first generate" />
   </component>
 </project>
