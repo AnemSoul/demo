@@ -51,7 +51,7 @@ public class ApiHandler implements RequestHandler<Request, Response> {
 
         Item item = new Item()
                 .withPrimaryKey("id", newId)
-                .withInt("principalId", principalId)
+                .withInt("principalID", principalId)
                 .withString("createdAt", currentTime)
                 .withMap("body", content);
 
