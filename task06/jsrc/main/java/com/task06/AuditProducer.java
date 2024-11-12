@@ -41,7 +41,7 @@ public class AuditProducer implements RequestHandler<DynamodbEvent, String> {
     private final AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
     private final DynamoDB dynamoDb = new DynamoDB(client);
     private final String DYNAMODB_TABLE_NAME = System.getenv("target_table");
-    private final Table audittable = dynamoDb.getTable(DYNAMODB_TABLE_NAME);
+    private final Table AUDIT_TABLE = dynamoDb.getTable(DYNAMODB_TABLE_NAME);
 
     @Override
     public String handleRequest(DynamodbEvent event, Context context) {
@@ -49,10 +49,18 @@ public class AuditProducer implements RequestHandler<DynamodbEvent, String> {
         for (DynamodbEvent.DynamodbStreamRecord record : event.getRecords()) {
             String eventName = record.getEventName();
             if (eventName.equals("INSERT")) {
-                auditTableAddData(record.getDynamodb().getNewImage());
+                auditTableAddData(record
+                        .getDynamodb()
+                        .getNewImage());
                 break;
             } else if (eventName.equals("MODIFY")) {
-                auditTableUpData(record.getDynamodb().getNewImage(), record.getDynamodb().getOldImage());
+                auditTableUpData(
+                        record
+                                .getDynamodb()
+                                .getNewImage(),
+                        record
+                                .getDynamodb()
+                                .getOldImage());
             } else {
                 break;
             }
@@ -69,8 +77,9 @@ public class AuditProducer implements RequestHandler<DynamodbEvent, String> {
         int newValue = Integer.parseInt(newImage.get("value").getN());
 
         if (newValue != previousValue) {
-            Item updateAuditItem = new Item()
-                    .withPrimaryKey("id", UUID
+            Item updateAuditItem = new Item();
+
+            AUDIT_TABLE.putItem(updateAuditItem.withPrimaryKey("id", UUID
                             .randomUUID()
                             .toString())
                     .withString("itemKey", key)
@@ -79,9 +88,7 @@ public class AuditProducer implements RequestHandler<DynamodbEvent, String> {
                             .format(Instant.now().atOffset(ZoneOffset.UTC)))
                     .withString("updatedAttribute", "value")
                     .withInt("oldValue", previousValue)
-                    .withInt("newValue", newValue);
-
-            audittable.putItem(updateAuditItem);
+                    .withInt("newValue", newValue));
         }
     }
 
@@ -94,16 +101,15 @@ public class AuditProducer implements RequestHandler<DynamodbEvent, String> {
         newValue.put("key", key);
         newValue.put("value", value);
 
-        Item item = new Item()
-                .withPrimaryKey("id", UUID
+        Item item = new Item();
+
+        AUDIT_TABLE.putItem(item.withPrimaryKey("id", UUID
                         .randomUUID()
                         .toString())
                 .withString("itemKey", key)
                 .withString("modificationTime", DateTimeFormatter
                         .ISO_INSTANT
                         .format(Instant.now().atOffset(ZoneOffset.UTC)))
-                .withMap("newValue", newValue);
-
-        audittable.putItem(item);
+                .withMap("newValue", newValue));
     }
 }
