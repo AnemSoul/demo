@@ -33,5 +33,15 @@
     ],
     "resource_type": "iam_role",
     "tags": {}
+  },
+  "Configuration": {
+    "resource_type": "dynamodb_table",
+    "hash_key_name": "Id",
+    "hash_key_type": "N",
+    "read_capacity": 1,
+    "write_capacity": 1,
+    "global_indexes": [],
+    "autoscaling": [],
+    "tags": {}
   }
 }
