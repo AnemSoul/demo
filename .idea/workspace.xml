@@ -33,6 +33,7 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -392,7 +393,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731366577140</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Task06 start; java project is generated">
+      <option name="closed" value="true" />
+      <created>1731415625303</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1731415625303</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -407,7 +416,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add generated lambda function of Java in Maven" />
     <MESSAGE value="deploy a Lambda function with a configured Function URL" />
     <MESSAGE value="clear code" />
     <MESSAGE value="Tack03 after lambda generating" />
@@ -432,6 +440,7 @@
     <MESSAGE value="new fix 04" />
     <MESSAGE value="new fix 05" />
     <MESSAGE value="new start for task05" />
-    <option name="LAST_COMMIT_MESSAGE" value="new start for task05" />
+    <MESSAGE value="Task06 start; java project is generated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Task06 start; java project is generated" />
   </component>
 </project>

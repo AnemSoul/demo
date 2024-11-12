@@ -53,5 +53,6 @@
     "write_capacity": 1,
     "global_indexes": [],
     "autoscaling": []
+
   }
 }
