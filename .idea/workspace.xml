@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="task08 5d folder 1nd try">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task08/jsrc/main/java/com/task08/ApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/task08/jsrc/main/java/com/task08/ApiHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task08/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/task08/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="task08 5d folder 2nd try" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -446,7 +442,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731603463508</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="task08 5d folder 2nd try">
+      <option name="closed" value="true" />
+      <created>1731604963569</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1731604963569</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -461,7 +465,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="clear code" />
     <MESSAGE value="Tack03 after lambda generating" />
     <MESSAGE value="deployment file is changed, build01 deploy01" />
     <MESSAGE value="LambdaUrlConfig id added, clean 01 build02 deploy02" />
@@ -486,6 +489,7 @@
     <MESSAGE value="new start for task05" />
     <MESSAGE value="Task06 start; java project is generated" />
     <MESSAGE value="task08 5d folder 1nd try" />
-    <option name="LAST_COMMIT_MESSAGE" value="task08 5d folder 1nd try" />
+    <MESSAGE value="task08 5d folder 2nd try" />
+    <option name="LAST_COMMIT_MESSAGE" value="task08 5d folder 2nd try" />
   </component>
 </project>

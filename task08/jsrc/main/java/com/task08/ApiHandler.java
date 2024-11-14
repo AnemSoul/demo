@@ -32,11 +32,20 @@ import org.example.OpenMeteoWeather;
 )
 public class ApiHandler implements RequestHandler<Object, String> {
 
-    public String handleRequest(Object request, Context context) {
+    @Override
+    public String handleRequest(Object input, Context context) {
+        String weatherData = getWeatherData(context);
+        context.getLogger().log("Weather Data: " + weatherData);
+        return weatherData;
+    }
 
-        OpenMeteoWeather openMeteoWeather = new OpenMeteoWeather();
-        String response = openMeteoWeather.callApi();
-        context.getLogger().log(response);
-        return openMeteoWeather.callApi();
+    private String getWeatherData(Context context) {
+        OpenMeteoWeather weatherClient = new OpenMeteoWeather();
+        try {
+            return weatherClient.callApi();
+        } catch (Exception e) {
+            context.getLogger().log("Failed to retrieve weather data: " + e.getMessage());
+            return "Error: " + e.getMessage();
+        }
     }
 }
