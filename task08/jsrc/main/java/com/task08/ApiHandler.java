@@ -15,7 +15,7 @@ import org.example.OpenMeteoWeather;
 @LambdaHandler(
         lambdaName = "api_handler",
         roleName = "api_handler-role",
-        layers = {"sdk-layer"},
+        layers = "sdk-layer",
         isPublishVersion = true,
         aliasName = "${lambdas_alias_name}",
         logsExpiration = RetentionSetting.SYNDICATE_ALIASES_SPECIFIED
