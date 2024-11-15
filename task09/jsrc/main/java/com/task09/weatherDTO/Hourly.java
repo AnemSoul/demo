@@ -15,5 +15,5 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Hourly {
     private List<String> time;
-    private List<Number> temperature_2m;
+    private List<Number> temperature2mList;
 }

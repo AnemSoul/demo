@@ -27,85 +27,91 @@ import java.util.Scanner;
 import java.util.UUID;
 
 @LambdaHandler(
-		lambdaName = "processor",
-		roleName = "processor-role",
-		isPublishVersion = true,
-		aliasName = "${lambdas_alias_name}",
-		tracingMode = TracingMode.Active
+        lambdaName = "processor",
+        roleName = "processor-role",
+        isPublishVersion = true,
+        aliasName = "${lambdas_alias_name}",
+        tracingMode = TracingMode.Active
 )
 @LambdaUrlConfig(
-		authType = AuthType.NONE,
-		invokeMode = InvokeMode.BUFFERED)
+        authType = AuthType.NONE,
+        invokeMode = InvokeMode.BUFFERED
+)
 @EnvironmentVariables(
-		@EnvironmentVariable(key = "target_table", value = "${target_table}"
-		)
+        @EnvironmentVariable(key = "target_table", value = "${target_table}")
 )
 public class Processor implements RequestHandler<APIGatewayProxyRequestEvent, APIGatewayV2HTTPResponse> {
 
-	private final DynamoDB dynamoDB = new DynamoDB(AmazonDynamoDBClientBuilder.defaultClient());
-	private final String tableName = System.getenv("target_table");
+    private final DynamoDB dynamoDB = new DynamoDB(AmazonDynamoDBClientBuilder.defaultClient());
+    private final String tableName = System.getenv("target_table");
 
-	@Override
-	public APIGatewayV2HTTPResponse handleRequest(APIGatewayProxyRequestEvent request, Context context) {
-		try {
-			// Fetch and parse weather data
-			Forecast forecast = new ObjectMapper().readValue(fetchWeatherData(), Forecast.class);
+    @Override
+    public APIGatewayV2HTTPResponse handleRequest(APIGatewayProxyRequestEvent request, Context context) {
+        try {
 
-			// Prepare and store data in DynamoDB
-			storeForecastData(forecast);
+            Forecast forecast = new ObjectMapper().readValue(fetchWeatherData(), Forecast.class);
 
-			// Return success response
-			return createResponse(200, "Weather data successfully processed and stored.");
-		} catch (Exception e) {
-			context.getLogger().log("Error: " + e.getMessage());
-			return createResponse(500, "Internal Server Error: " + e.getMessage());
-		}
-	}
+            storeForecastData(forecast);
 
-	private String fetchWeatherData() throws Exception {
-		URL url = new URL("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m");
-		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		conn.setRequestMethod("GET");
+            return createResponse(200, "Weather data successfully processed and stored.");
+        } catch (Exception e) {
 
-		try (Scanner scanner = new Scanner(new InputStreamReader(conn.getInputStream()))) {
-			StringBuilder response = new StringBuilder();
-			while (scanner.hasNext()) response.append(scanner.nextLine());
-			return response.toString();
-		}
-	}
+            context.getLogger().log("Error: " + e.getMessage());
+            return createResponse(500, "Internal Server Error: " + e.getMessage());
+        }
+    }
 
-	private void storeForecastData(Forecast forecast) {
-		Table table = dynamoDB.getTable(tableName);
-		String id = UUID.randomUUID().toString();
+    private String fetchWeatherData() throws Exception {
 
-		Map<String, Object> forecastMap = new HashMap<>();
-		forecastMap.put("elevation", forecast.getElevation());
-		forecastMap.put("generationtime_ms", forecast.getGenerationtime_ms());
-		forecastMap.put("latitude", forecast.getLatitude());
-		forecastMap.put("longitude", forecast.getLongitude());
-		forecastMap.put("timezone", forecast.getTimezone());
-		forecastMap.put("timezone_abbreviation", forecast.getTimezone_abbreviation());
-		forecastMap.put("utc_offset_seconds", forecast.getUtc_offset_seconds());
+        URL url = new URL("https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m");
+        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        conn.setRequestMethod("GET");
 
-		// Add hourly data
-		forecastMap.put("hourly", Map.of(
-				"time", forecast.getHourly().getTime(),
-				"temperature_2m", forecast.getHourly().getTemperature_2m()
-		));
+        try (Scanner scanner = new Scanner(new InputStreamReader(conn.getInputStream()))) {
 
-		// Add hourly units
-		forecastMap.put("hourly_units", Map.of(
-				"time", forecast.getHourly_units().getTime(),
-				"temperature_2m", forecast.getHourly_units().getTemperature_2m()
-		));
+            StringBuilder response = new StringBuilder();
+            while (scanner.hasNext()) response.append(scanner.nextLine());
+            return response.toString();
+        }
+    }
 
-		table.putItem(new Item().withPrimaryKey("id", id).withMap("forecast", forecastMap));
-	}
+    private void storeForecastData(Forecast forecast) {
 
-	private APIGatewayV2HTTPResponse createResponse(int statusCode, String body) {
-		return APIGatewayV2HTTPResponse.builder()
-				.withStatusCode(statusCode)
-				.withBody(body)
-				.build();
-	}
+        Table table = dynamoDB.getTable(tableName);
+        String id = UUID.randomUUID().toString();
+
+        Map<String, Object> forecastMap = new HashMap<>();
+        forecastMap.put("elevation", forecast.getElevation());
+        forecastMap.put("generationtime_ms", forecast.getGenerationTimeMs());
+        forecastMap.put("latitude", forecast.getLatitude());
+        forecastMap.put("longitude", forecast.getLongitude());
+        forecastMap.put("timezone", forecast.getTimezone());
+        forecastMap.put("timezone_abbreviation", forecast.getTimezoneAbbreviation());
+        forecastMap.put("utc_offset_seconds", forecast.getUtcOffsetSeconds());
+
+        // Add hourly data
+        forecastMap.put("hourly", Map.of(
+                "time", forecast.getHourly().getTime(),
+                "temperature_2m", forecast.getHourly().getTemperature2mList()
+        ));
+
+        // Add hourly units
+        forecastMap.put("hourly_units", Map.of(
+                "time", forecast.getHourlyUnits().getTime(),
+                "temperature_2m", forecast.getHourlyUnits().getTemperature2mString()
+        ));
+
+        table
+                .putItem(new Item()
+                        .withPrimaryKey("id", id)
+                        .withMap("forecast", forecastMap));
+    }
+
+    private APIGatewayV2HTTPResponse createResponse(int statusCode, String body) {
+
+        return APIGatewayV2HTTPResponse.builder()
+                .withStatusCode(statusCode)
+                .withBody(body)
+                .build();
+    }
 }

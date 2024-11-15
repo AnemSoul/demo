@@ -15,12 +15,12 @@ import lombok.Setter;
 public class Forecast {
     private Number latitude;
     private Number longitude;
-    private Number generationtime_ms;
-    private Number utc_offset_seconds;
+    private Number generationTimeMs;
+    private Number utcOffsetSeconds;
     private String timezone;
-    private String timezone_abbreviation;
+    private String timezoneAbbreviation;
     private Number elevation;
-    private HourlyUnits hourly_units;
+    private HourlyUnits hourlyUnits;
     private Hourly hourly;
 
 }

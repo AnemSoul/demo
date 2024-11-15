@@ -13,6 +13,6 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public  class HourlyUnits {
     private String time;
-    private String temperature_2m;
+    private String temperature2mString;
 
 }
