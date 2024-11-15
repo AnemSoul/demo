@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="task08 5d folder 2nd try" />
+    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="task08 5d folder 2nd try">
+      <change afterPath="$PROJECT_DIR$/task09/jsrc/main/java/com/task09/Processor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task09/jsrc/main/java/com/task09/weatherDTO/Forecast.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task09/jsrc/main/java/com/task09/weatherDTO/Hourly.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task09/jsrc/main/java/com/task09/weatherDTO/HourlyUnits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,7 +51,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "TASK083",
+    "git-widget-placeholder": "TASK092",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/IdeaProjects/demo/task07",
@@ -166,6 +175,8 @@
         <item itemvalue="JAR Application.Weather-1.0-SNAPSHOT.jar" />
         <item itemvalue="Application.WeatherService" />
         <item itemvalue="Application.OpenMeteoWeather" />
+        <item itemvalue="JAR Application.Weather-1.0-SNAPSHOT.jar" />
+        <item itemvalue="Application.WeatherService" />
       </list>
     </recent_temporary>
   </component>
