@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="task08 5d folder 2nd try">
-      <change afterPath="$PROJECT_DIR$/task09/jsrc/main/java/com/task09/Processor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task09/jsrc/main/java/com/task09/weatherDTO/Forecast.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task09/jsrc/main/java/com/task09/weatherDTO/Hourly.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/task09/jsrc/main/java/com/task09/weatherDTO/HourlyUnits.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="task09 3d folder 1st try">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task09/jsrc/main/java/com/task09/Processor.java" beforeDir="false" afterPath="$PROJECT_DIR$/task09/jsrc/main/java/com/task09/Processor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -461,7 +455,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731604963569</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="task09 3d folder 1st try">
+      <option name="closed" value="true" />
+      <created>1731680110037</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1731680110037</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -476,7 +478,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Tack03 after lambda generating" />
     <MESSAGE value="deployment file is changed, build01 deploy01" />
     <MESSAGE value="LambdaUrlConfig id added, clean 01 build02 deploy02" />
     <MESSAGE value="deployment_resources.json 45-46 is changed, clean 01 build02 deploy02" />
@@ -501,6 +502,7 @@
     <MESSAGE value="Task06 start; java project is generated" />
     <MESSAGE value="task08 5d folder 1nd try" />
     <MESSAGE value="task08 5d folder 2nd try" />
-    <option name="LAST_COMMIT_MESSAGE" value="task08 5d folder 2nd try" />
+    <MESSAGE value="task09 3d folder 1st try" />
+    <option name="LAST_COMMIT_MESSAGE" value="task09 3d folder 1st try" />
   </component>
 </project>

@@ -19,9 +19,9 @@
       "target_table" : "${target_table}"
     },
     "tags" : { },
+    "tracing_mode" : "Active",
     "publish_version" : true,
     "alias" : "${lambdas_alias_name}",
-    "logs_expiration" : "${logs_expiration}",
     "snap_start" : "None",
     "url_config" : {
       "auth_type" : "NONE",
