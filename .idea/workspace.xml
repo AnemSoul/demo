@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="task08 5d folder 2nd try" />
+    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="task09 3d folder 2st try" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,7 +42,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "TASK083",
+    "git-widget-placeholder": "TASK092",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/IdeaProjects/demo/task07",
@@ -166,6 +166,8 @@
         <item itemvalue="JAR Application.Weather-1.0-SNAPSHOT.jar" />
         <item itemvalue="Application.WeatherService" />
         <item itemvalue="Application.OpenMeteoWeather" />
+        <item itemvalue="JAR Application.Weather-1.0-SNAPSHOT.jar" />
+        <item itemvalue="Application.WeatherService" />
       </list>
     </recent_temporary>
   </component>
@@ -450,7 +452,23 @@
       <option name="project" value="LOCAL" />
       <updated>1731604963569</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="task09 3d folder 1st try">
+      <option name="closed" value="true" />
+      <created>1731680110037</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1731680110037</updated>
+    </task>
+    <task id="LOCAL-00036" summary="task09 3d folder 2st try">
+      <option name="closed" value="true" />
+      <created>1731681053019</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1731681053019</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -465,8 +483,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Tack03 after lambda generating" />
-    <MESSAGE value="deployment file is changed, build01 deploy01" />
     <MESSAGE value="LambdaUrlConfig id added, clean 01 build02 deploy02" />
     <MESSAGE value="deployment_resources.json 45-46 is changed, clean 01 build02 deploy02" />
     <MESSAGE value="SqsHandler is generated, start for modified" />
@@ -490,6 +506,8 @@
     <MESSAGE value="Task06 start; java project is generated" />
     <MESSAGE value="task08 5d folder 1nd try" />
     <MESSAGE value="task08 5d folder 2nd try" />
-    <option name="LAST_COMMIT_MESSAGE" value="task08 5d folder 2nd try" />
+    <MESSAGE value="task09 3d folder 1st try" />
+    <MESSAGE value="task09 3d folder 2st try" />
+    <option name="LAST_COMMIT_MESSAGE" value="task09 3d folder 2st try" />
   </component>
 </project>
