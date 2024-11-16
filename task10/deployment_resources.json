@@ -1,0 +1,272 @@
+{
+  "lambda-basic-execution": {
+    "policy_content": {
+      "Statement": [
+        {
+          "Action": [
+            "logs:CreateLogGroup",
+            "logs:CreateLogStream",
+            "logs:PutLogEvents",
+            "dynamodb:GetItem",
+            "dynamodb:Query",
+            "dynamodb:PutItem",
+            "dynamodb:Batch*",
+            "dynamodb:DeleteItem",
+            "ssm:PutParameter",
+            "ssm:GetParameter",
+            "kms:Decrypt"
+          ],
+          "Effect": "Allow",
+          "Resource": "*"
+        }
+      ],
+      "Version": "2012-10-17"
+    },
+    "resource_type": "iam_policy"
+  },
+  "lambda-cognito-execution": {
+    "policy_content": {
+      "Statement": [
+        {
+          "Action": [
+            "cognito-idp:ListUserPools",
+            "cognito-idp:ListUserPoolClients",
+            "cognito-idp:AdminCreateUser",
+            "cognito-idp:AdminConfirmSignUp",
+            "cognito-idp:CreateUserPoolClient",
+            "cognito-idp:AdminInitiateAuth",
+            "cognito-idp:AdminRespondToAuthChallenge",
+            "dynamodb:Scan"
+          ],
+          "Effect": "Allow",
+          "Resource": "*"
+        }
+      ],
+      "Version": "2012-10-17"
+    },
+    "resource_type": "iam_policy"
+  },
+  "api_handler-role": {
+    "predefined_policies": [],
+    "principal_service": "lambda",
+    "custom_policies": [
+      "lambda-basic-execution",
+      "lambda-cognito-execution"
+    ],
+    "resource_type": "iam_role"
+  },
+  "simple-booking-userpool": {
+    "resource_type": "cognito_idp",
+    "password_policy": {
+      "minimum_length": 8,
+      "require_uppercase": true,
+      "require_symbols": true,
+      "require_lowercase": true,
+      "require_numbers": true
+    },
+    "auto_verified_attributes": [
+      "email"
+    ],
+    "sms_configuration": {},
+    "username_attributes": [
+      "email"
+    ],
+    "custom_attributes": [
+
+    ],
+    "client": {
+      "client_name" : "api_client_syndicate"
+    }
+  },
+  "Tables": {
+    "resource_type": "dynamodb_table",
+    "hash_key_name": "id",
+    "hash_key_type": "N",
+    "read_capacity": 1,
+    "write_capacity": 1,
+    "global_indexes": [],
+    "autoscaling": []
+  },
+  "Reservations": {
+    "resource_type": "dynamodb_table",
+    "hash_key_name": "id",
+    "hash_key_type": "S",
+    "read_capacity": 1,
+    "write_capacity": 1,
+    "global_indexes": [],
+    "autoscaling": []
+  },
+  "task10_api": {
+    "resource_type": "api_gateway",
+    "deploy_stage": "api",
+    "authorizers": {
+      "authorizer": {
+        "type": "COGNITO_USER_POOLS",
+        "identity_source": "method.request.header.Authorization",
+        "user_pools": [
+          "simple-booking-userpool"
+        ],
+        "ttl": 300
+      }
+    },
+    "dependencies": [],
+    "resources": {
+      "/signup": {
+        "enable_cors": false,
+        "POST": {
+          "authorization_type": "NONE",
+          "integration_type": "lambda",
+          "lambda_name": "api_handler",
+          "api_key_required": false,
+          "method_request_parameters": {},
+          "integration_request_body_template": {
+            "application/json": "{\"method\": \"$context.httpMethod\", \"path\": \"$context.resourcePath\", \"authorization_header\": \"$input.params('Authorization')\", \"body_json\": $input.json('$')}"
+          },
+          "responses": [],
+          "integration_responses": [
+            {
+              "status_code": "200",
+              "response_templates": {
+                "application/json": "#set($inputRoot = $input.path('$'))\n$input.path('$.body')\n#if($inputRoot.toString().contains(\"ERROR\"))\n    #set($context.responseOverride.status = 400)\n#end"
+              }
+            }
+          ],
+          "default_error_pattern": true
+        }
+      },
+      "/signin": {
+        "enable_cors": false,
+        "POST": {
+          "authorization_type": "NONE",
+          "integration_type": "lambda",
+          "lambda_name": "api_handler",
+          "api_key_required": false,
+          "method_request_parameters": {},
+          "integration_request_body_template": {
+            "application/json": "{\"method\": \"$context.httpMethod\", \"path\": \"$context.resourcePath\", \"authorization_header\": \"$input.params('Authorization')\", \"body_json\": $input.json('$')}"
+          },
+          "responses": [],
+          "integration_responses": [
+            {
+              "status_code": "200",
+              "response_templates": {
+                "application/json": "#set($inputRoot = $input.path('$'))\n{\"accessToken\": \"$input.path('$.body')\"\n#if($inputRoot.toString().contains('ERROR'))\n    #set($context.responseOverride.status = 400)\n#end}"
+              }
+            }
+          ],
+          "default_error_pattern": true
+        }
+      },
+      "/tables/{id}": {
+        "enable_cors": false,
+        "GET": {
+          "authorization_type": "authorizer",
+          "integration_type": "lambda",
+          "lambda_name": "api_handler",
+          "api_key_required": false,
+          "method_request_parameters": {},
+          "integration_request_body_template": {
+            "application/json": "{\"method\": \"$context.httpMethod\", \"path\": \"$context.resourcePath\", \"authorization_header\": \"$input.params('id')\", \"body_json\": $input.json('$')}"
+          },
+          "responses": [],
+          "integration_responses": [
+            {
+              "status_code": "200",
+              "response_templates": {
+                "application/json": "#set($inputRoot = $input.path('$'))\n$input.path('$.body')\n#if($inputRoot.toString().contains(\"ERROR\"))\n    #set($context.responseOverride.status = 400)\n#end"
+              }
+            }
+          ],
+          "default_error_pattern": true
+        }
+      },
+      "/tables": {
+        "enable_cors": false,
+        "GET": {
+          "authorization_type": "authorizer",
+          "integration_type": "lambda",
+          "lambda_name": "api_handler",
+          "api_key_required": false,
+          "method_request_parameters": {},
+          "integration_request_body_template": {
+            "application/json": "{\"method\": \"$context.httpMethod\", \"path\": \"$context.resourcePath\", \"authorization_header\": \"$input.params('Authorization')\", \"body_json\": $input.json('$')}"
+          },
+          "responses": [],
+          "integration_responses": [
+            {
+              "status_code": "200",
+              "response_templates": {
+                "application/json": "#set($inputRoot = $input.path('$'))$input.path('$.body')#if($inputRoot.toString().contains(\"ERROR\"))\n    #set($context.responseOverride.status = 400)\n#end"
+              }
+            }
+          ],
+          "default_error_pattern": true
+        },
+        "POST": {
+          "authorization_type": "authorizer",
+          "integration_type": "lambda",
+          "lambda_name": "api_handler",
+          "api_key_required": false,
+          "method_request_parameters": {},
+          "integration_request_body_template": {
+            "application/json": "{\"method\": \"$context.httpMethod\", \"path\": \"$context.resourcePath\", \"authorization_header\": \"$input.params('Authorization')\", \"body_json\": $input.json('$')}"
+          },
+          "responses": [],
+          "integration_responses": [
+            {
+              "status_code": "200",
+              "response_templates": {
+                "application/json": "#set($inputRoot = $input.path('$'))\n{\"id\": $input.path('$.body')#if($inputRoot.toString().contains('ERROR'))\n    #set($context.responseOverride.status = 400)\n#end}"
+              }
+            }
+          ],
+          "default_error_pattern": true
+        }
+      },
+      "/reservations": {
+        "enable_cors": false,
+        "GET": {
+          "authorization_type": "authorizer",
+          "integration_type": "lambda",
+          "lambda_name": "api_handler",
+          "api_key_required": false,
+          "method_request_parameters": {},
+          "integration_request_body_template": {
+            "application/json": "{\"method\": \"$context.httpMethod\", \"path\": \"$context.resourcePath\", \"authorization_header\": \"$input.params('Authorization')\", \"body_json\": $input.json('$')}"
+          },
+          "responses": [],
+          "integration_responses": [
+            {
+              "status_code": "200",
+              "response_templates": {
+                "application/json": "#set($inputRoot = $input.path('$'))$input.path('$.body')#if($inputRoot.toString().contains(\"ERROR\"))\n    #set($context.responseOverride.status = 400)\n#end"
+              }
+            }
+          ],
+          "default_error_pattern": true
+        },
+        "POST": {
+          "authorization_type": "authorizer",
+          "integration_type": "lambda",
+          "lambda_name": "api_handler",
+          "api_key_required": false,
+          "method_request_parameters": {},
+          "integration_request_body_template": {
+            "application/json": "{\"method\": \"$context.httpMethod\", \"path\": \"$context.resourcePath\", \"authorization_header\": \"$input.params('Authorization')\", \"body_json\": $input.json('$')}"
+          },
+          "responses": [],
+          "integration_responses": [
+            {
+              "status_code": "200",
+              "response_templates": {
+                "application/json": "#set($inputRoot = $input.path('$')){\"reservationId\": \"$input.path('$.body')\"#if($inputRoot.toString().contains('ERROR'))\n    #set($context.responseOverride.status = 400)\n#end}"
+              }
+            }
+          ],
+          "default_error_pattern": true
+        }
+      }
+    },
+    "minimum_compression_size": 0
+  }
+}
