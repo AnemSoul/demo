@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="task10 3d folder 1d try">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="task10 3d folder 2d try">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task10/jsrc/main/java/com/task10/ApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/task10/jsrc/main/java/com/task10/ApiHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -479,7 +479,15 @@
       <option name="project" value="LOCAL" />
       <updated>1731784056776</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="task10 3d folder 2d try">
+      <option name="closed" value="true" />
+      <created>1731785712455</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1731785712455</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -494,7 +502,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="deployment_resources.json 45-46 is changed, clean 01 build02 deploy02" />
     <MESSAGE value="SqsHandler is generated, start for modified" />
     <MESSAGE value="SqsHandler is generated and modified, trying to do step 8" />
     <MESSAGE value="SnsHandler is generated" />
@@ -519,6 +526,7 @@
     <MESSAGE value="task09 3d folder 1st try" />
     <MESSAGE value="task09 3d folder 2st try" />
     <MESSAGE value="task10 3d folder 1d try" />
-    <option name="LAST_COMMIT_MESSAGE" value="task10 3d folder 1d try" />
+    <MESSAGE value="task10 3d folder 2d try" />
+    <option name="LAST_COMMIT_MESSAGE" value="task10 3d folder 2d try" />
   </component>
 </project>

@@ -77,57 +77,128 @@ public class ApiHandler implements RequestHandler<ApiHandler.APIRequest, APIGate
 
 	private Table buildTableObject(APIRequest apiRequest) {
 		System.out.println("Calling buildTableObject ...");
-		return new Table(Integer.valueOf(apiRequest.body_json().get("id")), Integer.valueOf(apiRequest.body_json().get("number")),
-				Integer.valueOf(apiRequest.body_json().get("places")), Boolean.valueOf(apiRequest.body_json().get("isVip")),
-				Objects.nonNull(apiRequest.body_json().get("minOrder")) ? Integer.parseInt(apiRequest.body_json().get("minOrder")) : null);
+
+		// Extracting values directly and converting them
+		Integer id = Integer.valueOf(apiRequest.body_json().get("id"));
+		Integer number = Integer.valueOf(apiRequest.body_json().get("number"));
+		Integer places = Integer.valueOf(apiRequest.body_json().get("places"));
+		Boolean isVip = Boolean.valueOf(apiRequest.body_json().get("isVip"));
+		Integer minOrder = apiRequest.body_json().containsKey("minOrder") ? Integer.valueOf(apiRequest.body_json().get("minOrder")) : null;
+
+		// Returning the Table object
+		return new Table(id, number, places, isVip, minOrder);
 	}
 
 	private Reservation buildReservationObject(APIRequest apiRequest) {
 		System.out.println("Calling buildReservationObject ...");
-		return new Reservation(Integer.valueOf(apiRequest.body_json().get("tableNumber")), apiRequest.body_json().get("clientName"),
-				apiRequest.body_json().get("phoneNumber"), apiRequest.body_json().get("date"),
-				apiRequest.body_json().get("slotTimeStart"), apiRequest.body_json().get("slotTimeEnd"));
+
+		// Extracting values and converting them
+		Integer tableNumber = Integer.valueOf(apiRequest.body_json().get("tableNumber"));
+		String clientName = apiRequest.body_json().get("clientName");
+		String phoneNumber = apiRequest.body_json().get("phoneNumber");
+		String date = apiRequest.body_json().get("date");
+		String slotTimeStart = apiRequest.body_json().get("slotTimeStart");
+		String slotTimeEnd = apiRequest.body_json().get("slotTimeEnd");
+
+		// Returning the Reservation object
+		return new Reservation(tableNumber, clientName, phoneNumber, date, slotTimeStart, slotTimeEnd);
 	}
+
+
 
 	private Table buildTableResponse(Map<String, AttributeValue> result) {
-		return new Table(Integer.valueOf(result.get("id").getN()), Integer.valueOf(result.get("number").getN()),
-				Integer.valueOf(result.get("places").getN()), result.get("isVip").getBOOL(),
-				Objects.nonNull(result.get("minOrder")) ? (Integer.valueOf(result.get("minOrder").getN())) : null);
+		System.out.println("Calling buildTableResponse ...");
+
+		// Extracting values directly and converting them
+		Integer id = Integer.valueOf(result.get("id").getN());
+		Integer number = Integer.valueOf(result.get("number").getN());
+		Integer places = Integer.valueOf(result.get("places").getN());
+		Boolean isVip = result.get("isVip").getBOOL();
+		Integer minOrder = result.containsKey("minOrder") ? Integer.valueOf(result.get("minOrder").getN()) : null;
+
+		// Returning the Table object
+		return new Table(id, number, places, isVip, minOrder);
 	}
 
+
+
 	private Reservation buildReservationResponse(Map<String, AttributeValue> result) {
-		return new Reservation(Integer.valueOf(result.get("tableNumber").getN()), result.get("clientName").getS(), result.get("phoneNumber").getS(),
-				result.get("date").getS(), result.get("slotTimeStart").getS(), result.get("slotTimeEnd").getS());
+		System.out.println("Calling buildReservationResponse ...");
+
+		// Extracting and converting values
+		Integer tableNumber = Integer.valueOf(result.get("tableNumber").getN());
+		String clientName = result.get("clientName").getS();
+		String phoneNumber = result.get("phoneNumber").getS();
+		String date = result.get("date").getS();
+		String slotTimeStart = result.get("slotTimeStart").getS();
+		String slotTimeEnd = result.get("slotTimeEnd").getS();
+
+		// Returning the Reservation object
+		return new Reservation(tableNumber, clientName, phoneNumber, date, slotTimeStart, slotTimeEnd);
 	}
 
 	private String createAppClient(String userPoolId) {
 		System.out.println("Calling createAppClient ...");
-		var result = identityProviderClient.createUserPoolClient(
-				CreateUserPoolClientRequest.builder().userPoolId(userPoolId)
-						.explicitAuthFlows(ExplicitAuthFlowsType.ALLOW_ADMIN_USER_PASSWORD_AUTH, ExplicitAuthFlowsType.ALLOW_REFRESH_TOKEN_AUTH).clientName("api_client").build());
-		System.out.println("createAppClient " + result.userPoolClient().clientId());
+
+		// Creating a request to create a new user pool client with some authentication flows
+		CreateUserPoolClientRequest request = CreateUserPoolClientRequest.builder()
+				.userPoolId(userPoolId)
+				.explicitAuthFlows(ExplicitAuthFlowsType.ALLOW_ADMIN_USER_PASSWORD_AUTH, ExplicitAuthFlowsType.ALLOW_REFRESH_TOKEN_AUTH)
+				.clientName("api_client")
+				.build();
+
+		// Making the request and getting the response
+		var result = identityProviderClient.createUserPoolClient(request);
+
+		// Printing the client ID that was created
+		System.out.println("Created App Client with ID: " + result.userPoolClient().clientId());
+
+		// Returning the client ID
 		return result.userPoolClient().clientId();
 	}
 
+
 	private APIGatewayV2HTTPResponse signUpUser(APIRequest apiRequest, String userPoolId) {
 		System.out.println("Calling signUpUser ...");
+
 		try {
-			var userAttributeList = new ArrayList<AttributeType>();
-			userAttributeList.add(AttributeType.builder().name("email").value(apiRequest.body_json().get("email")).build());
-			var adminCreateUserRequest = AdminCreateUserRequest.builder()
-					.temporaryPassword(apiRequest.body_json().get("password"))
+			// Prepare user attributes, mainly email
+			String email = apiRequest.body_json().get("email");
+			String password = apiRequest.body_json().get("password");
+
+			// Create the list of user attributes
+			List<AttributeType> userAttributes = new ArrayList<>();
+			userAttributes.add(AttributeType.builder().name("email").value(email).build());
+
+			// Create the request to add the user to the pool
+			AdminCreateUserRequest createUserRequest = AdminCreateUserRequest.builder()
+					.temporaryPassword(password)
 					.userPoolId(userPoolId)
-					.username(apiRequest.body_json().get("email"))
-					.messageAction(MessageActionType.SUPPRESS)
-					.userAttributes(userAttributeList).build();
-			identityProviderClient.adminCreateUser(adminCreateUserRequest);
-			System.out.println("User has been created ");
+					.username(email)
+					.messageAction(MessageActionType.SUPPRESS) // Suppress the welcome message
+					.userAttributes(userAttributes)
+					.build();
+
+			// Execute the user creation request
+			identityProviderClient.adminCreateUser(createUserRequest);
+
+			System.out.println("User has been created");
+
+			// Return success response
 			return APIGatewayV2HTTPResponse.builder().withStatusCode(200).build();
+
 		} catch (CognitoIdentityProviderException e) {
-			System.err.println("Error while signing up user " + e.awsErrorDetails().errorMessage());
-			return APIGatewayV2HTTPResponse.builder().withStatusCode(400).withBody("ERROR " + e.getMessage()).build();
+			// Handle any errors during user creation
+			System.err.println("Error while signing up user: " + e.awsErrorDetails().errorMessage());
+
+			// Return failure response with error message
+			return APIGatewayV2HTTPResponse.builder()
+					.withStatusCode(400)
+					.withBody("ERROR: " + e.getMessage())
+					.build();
 		}
 	}
+
 
 	private APIGatewayV2HTTPResponse signInUser(APIRequest apiRequest, String userPoolId, String clientId) {
 		System.out.println("Calling signInUser ...");
@@ -283,25 +354,14 @@ public class ApiHandler implements RequestHandler<ApiHandler.APIRequest, APIGate
 	}
 
 
-	record APIRequest(String method, String path, String authorization_header, Map<String, String> body_json) {
+	record APIRequest(String method, String path, String authorization_header, Map<String, String> body_json) {}
 
-	}
-
-	record Table(Number id, Number number, Number places, Boolean isVip, Number minOrder) {
-
-	}
+	record Table(Number id, Number number, Number places, Boolean isVip, Number minOrder) {}
 
 	record Reservation(Number tableNumber, String clientName, String phoneNumber, String date, String slotTimeStart,
-					   String slotTimeEnd) {
+					   String slotTimeEnd) {}
 
-	}
+	record ReservationResponse(List<Reservation> reservations) {}
 
-	record ReservationResponse(List<Reservation> reservations) {
-
-	}
-
-	record TableResponse(List<Table> tables) {
-
-	}
-
+	record TableResponse(List<Table> tables) {}
 }
