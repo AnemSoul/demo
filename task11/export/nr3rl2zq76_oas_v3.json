@@ -1,0 +1,244 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "task11_api",
+    "version": "2024-11-17T20:31:35Z",
+    "description": "This API provides operations for managing tables, reservations, and user authentication."
+  },
+  "servers": [
+    {
+      "url": "https://nr3rl2zq76.execute-api.eu-central-1.amazonaws.com/{basePath}",
+      "variables": {
+        "basePath": {
+          "default": "api"
+        }
+      }
+    }
+  ],
+  "paths": {
+    "/tables/{id}": {
+      "get": {
+        "summary": "Retrieve table by ID",
+        "description": "Fetches information about a specific table by its unique identifier.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "Unique identifier of the table."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Table retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TableResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid table ID provided."
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        },
+        "security": [
+          {
+            "authorizer": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:eu-central-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-central-1:196241772369:function:api_handler/invocations",
+          "requestTemplates": {
+            "application/json": "{\"method\": \"$context.httpMethod\", \"path\": \"$context.resourcePath\", \"authorization_header\": \"$input.params('id')\", \"body_json\": $input.json('$')}"
+          },
+          "passthroughBehavior": "when_no_match",
+          "type": "aws"
+        }
+      }
+    },
+    "/reservations": {
+      "get": {
+        "summary": "List all reservations",
+        "description": "Returns a list of all reservations for the authenticated user.",
+        "responses": {
+          "200": {
+            "description": "Reservations retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Reservation"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized access."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        },
+        "security": [
+          {
+            "authorizer": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:eu-central-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-central-1:196241772369:function:api_handler/invocations",
+          "requestTemplates": {
+            "application/json": "{\"method\": \"$context.httpMethod\", \"path\": \"$context.resourcePath\", \"authorization_header\": \"$input.params('Authorization')\", \"body_json\": $input.json('$')}"
+          },
+          "passthroughBehavior": "when_no_match",
+          "type": "aws"
+        }
+      }
+    },
+    "/signup": {
+      "post": {
+        "summary": "User registration",
+        "description": "Registers a new user to the system.",
+        "requestBody": {
+          "description": "Details of the user to register.",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserSignupRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User registered successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserSignupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request data."
+          },
+          "500": {
+            "description": "Internal server error."
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "httpMethod": "POST",
+          "uri": "arn:aws:apigateway:eu-central-1:lambda:path/2015-03-31/functions/arn:aws:lambda:eu-central-1:196241772369:function:api_handler/invocations",
+          "requestTemplates": {
+            "application/json": "{\"method\": \"$context.httpMethod\", \"path\": \"$context.resourcePath\", \"authorization_header\": \"$input.params('Authorization')\", \"body_json\": $input.json('$')}"
+          },
+          "passthroughBehavior": "when_no_match",
+          "type": "aws"
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TableResponse": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Table ID."
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the table."
+          },
+          "status": {
+            "type": "string",
+            "description": "Current status of the table."
+          }
+        }
+      },
+      "Reservation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Reservation ID."
+          },
+          "tableId": {
+            "type": "string",
+            "description": "ID of the reserved table."
+          },
+          "userId": {
+            "type": "string",
+            "description": "ID of the user who made the reservation."
+          },
+          "time": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Reservation time."
+          }
+        }
+      },
+      "UserSignupRequest": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "description": "User's desired username."
+          },
+          "password": {
+            "type": "string",
+            "description": "User's password."
+          },
+          "email": {
+            "type": "string",
+            "description": "User's email address."
+          }
+        }
+      },
+      "UserSignupResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Confirmation message."
+          },
+          "userId": {
+            "type": "string",
+            "description": "ID of the registered user."
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "authorizer": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header",
+        "x-amazon-apigateway-authtype": "cognito_user_pools",
+        "x-amazon-apigateway-authorizer": {
+          "x-syndicate-cognito-userpool-names": [
+            "simple-booking-userpool"
+          ],
+          "type": "cognito_user_pools"
+        }
+      }
+    }
+  }
+}
