@@ -5,8 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e8857bee-2e14-4e28-9863-8fa10d9a1e87" name="Changes" comment="task10 3d folder 2d try">
+      <change afterPath="$PROJECT_DIR$/task11/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task11/CHANGELOG.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task11/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task11/deployment_resources.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task11/jsrc/main/java/com/task11/ApiHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task11/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task11/target/deployment_resources.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task11/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task11/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/task11/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/task10/jsrc/main/java/com/task10/ApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/task10/jsrc/main/java/com/task10/ApiHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task10/jsrc/main/java/com/task10/ApiHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/task10/jsrc/main/java/com/task11/ApiHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/task10/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/task10/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +40,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="TASK101" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -45,7 +59,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "TAASK102",
+    "git-widget-placeholder": "TASK115",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/IdeaProjects/demo/task07",
